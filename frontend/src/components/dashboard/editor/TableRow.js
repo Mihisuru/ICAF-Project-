@@ -15,8 +15,7 @@ class TableRow extends Component {
             .then(this.setState({redirect: true}))
             .catch(err => console.log(err))
         
-     
-        
+    
     }
     render() {
         return (

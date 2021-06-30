@@ -10,7 +10,6 @@ const events = require("./routes/api/events");
 const cors = require('cors');
 
 
-
 const app = express();
 
 // Bodyparser middleware
@@ -49,10 +48,6 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 
 app.use("/api/event", events);//
-
-
-
-//Get all Events
 
 
 const port = process.env.PORT || 5000;

@@ -48,10 +48,6 @@ class Dashboard extends Component {
           <ViewEventsPage/>
           
         </div>
-        
-      
-
-
 
       </div>
     );

@@ -12,7 +12,6 @@ const validateEventInput = require("../../validation/eventvaidate");
 // Load User model
 const Event = require("../../models/Event");
 
-
 //Event insert
 router.post("/insert", (req, res) => {
   // Form validation
@@ -106,14 +105,12 @@ router.route('/update/:id').post(function (req,res){
       
           event.oid = req.body.oid;
           event.ename = req.body.ename;
-          //event.edue = req.body.edue;
-         // event.edes = req.body.edes;
+          event.edue = req.body.edue;
+          event.edes = req.body.edes;
           event.link = req.body.link;
           event.date = req.body.date;
           event.status = req.body.status;
          
-         
-
           event.save().then(event => {
               res.json('Update Complete');
           })
@@ -125,67 +122,5 @@ router.route('/update/:id').post(function (req,res){
   });
 });
 
-
-
-
-// @route POST api/users/login
-// @desc Login user and return JWT token
-// @access Public
-router.post("/login", (req, res) => {
-  // Form validation
-
-  const { errors, isValid } = validateLoginInput(req.body);
-
-  // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-
-  const email = req.body.email;
-  const password = req.body.password;
-
-
-  // Find user by email
-  User.findOne({ email }).then(user => {
-    // Check if user exists
-    if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
-    }
-
-    // Check password
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (isMatch) {
-        // User matched
-        // Create JWT Payload
-        const payload = {
-          id: user.id,
-          name: user.name,
-          role: user.role
-        
-        };
-
-        // Sign token
-        jwt.sign(
-          payload,
-          keys.secretOrKey,
-          {
-            expiresIn: 31556926 // 1 year in seconds
-          },
-          (err, token) => {
-            res.json({
-              success: true,
-              token: "Bearer " + token,
-              role: user.role
-            });
-          }
-        );
-      } else {
-        return res
-          .status(400)
-          .json({ passwordincorrect: "Password incorrect" });
-      }
-    });
-  });
-});
 
 module.exports = router;
