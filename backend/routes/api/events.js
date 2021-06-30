@@ -15,6 +15,9 @@ const Event = require("../../models/Event");
 // @route POST api/users/register
 // @desc Register user
 // @access Public
+
+
+//Event insert
 router.post("/insert", (req, res) => {
   // Form validation
 
@@ -64,6 +67,72 @@ router.post("/insert", (req, res) => {
     }
   });
 });
+
+
+//Get all Events
+
+router.route('/all').get(function (req, res){
+
+  Event.find(function (err,event){
+      if(err)
+          console.log(err);
+      else{
+          res.json(event);
+      }
+  });
+});
+
+
+
+//Delete Event
+
+router.route('/delete/:id').get(function(req,res) {
+  Event.findByIdAndRemove({_id:req.params.id},function(err,event){
+      if (err) res.json(err);
+      else res.json('Successfully removed');
+  });
+});
+
+
+
+
+
+router.route('/edit/:id').get(function (req,res){
+  let id = req.params.id;
+  Employee.findById(id, function (err,event){
+      res.json(event);
+  });
+});
+
+router.route('/update/:id').post(function (req,res){
+  let id = req.params.id;
+  Event.findById(id, function (err, event){
+      if(!event)
+          res.status(404).send("Data is not found??");
+      else{
+      
+          event.oid = req.body.oid;
+          event.ename = req.body.ename;
+          event.edue = req.body.edue;
+          event.edes = req.body.edes;
+          event.link = req.body.link;
+          event.date = req.body.date;
+          event.status = req.body.status;
+         
+         
+
+          even.save().then(even => {
+              res.json('Update Complete');
+          })
+              .catch(err =>{
+                  res.status(400).send("Unable to update data");
+              });
+      }
+  });
+});
+
+
+
 
 // @route POST api/users/login
 // @desc Login user and return JWT token

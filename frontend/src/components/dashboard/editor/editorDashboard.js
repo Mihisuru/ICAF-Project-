@@ -5,6 +5,8 @@ import { logoutUser } from "../../../actions/authActions";
 import './editor.css';
 
 
+import ViewEventsPage from "./ViewEventsPage";
+
 
 class Dashboard extends Component {
   oninsertEventClicked = e => {
@@ -42,8 +44,15 @@ class Dashboard extends Component {
 
 
           </div>
+
+          <ViewEventsPage/>
+          
         </div>
         
+      
+
+
+
       </div>
     );
   }

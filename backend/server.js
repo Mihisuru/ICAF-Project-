@@ -7,14 +7,22 @@ const users = require("./routes/api/users");
 
 const events = require("./routes/api/events");
 
+const cors = require('cors');
+
+
+
 const app = express();
 
 // Bodyparser middleware
+
+app.use(cors());
+
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
+
 app.use(bodyParser.json());
 
 // DB Config
@@ -40,7 +48,12 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 
-app.use("/api/event", events);
+app.use("/api/event", events);//
+
+
+
+//Get all Events
+
 
 const port = process.env.PORT || 5000;
 

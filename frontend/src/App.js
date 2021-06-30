@@ -38,7 +38,13 @@ import keynotes from "./components/keynotes/keynotes";
 //Add event - Editor
 import insertEvent from "./components/dashboard/editor/InsertEvent";
 
+//Edit event - Editor
+import EditEvent from "./components/dashboard/editor/EditEvent";
+
 import Dashboard from "./components/dashboard/Dashboard";
+
+//import EditEvent from './components/dashboard/EditEvent';
+
 
 
 // Check for token to keep user logged in
@@ -75,7 +81,11 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/downloads" component={download} />
             <Route exact path="/keynotes" component={keynotes} />
-            
+
+
+            <Switch>
+                    <Route path='/editor/edit/event/:id' component={EditEvent}/>
+            </Switch>
             
             <Switch>
              
@@ -89,6 +99,9 @@ class App extends Component {
 
             
               <PrivateRoute path="/editor/add/event" component={insertEvent} />
+
+              <PrivateRoute path="/editor/edit/event" component={EditEvent} />
+
 
             </Switch>
             
