@@ -13,70 +13,21 @@ class keynotes extends Component {
 
     return (
       <div className="fixed">
-        <div className="row">
-          <div className="col s12 center-align">
 
-          <br></br>
-          <br></br>
-          <br></br>
-          <div className="divcenter"><h4 className="PageTitles">KEY NOTE SPEAKERS</h4>
+
+        
+        <div className="row">
+        <div className="divcenter1"><h4 className="PageTitles">KEY NOTE SPEAKERS</h4>
           <hr class="style2"></hr>
           </div>
-          <br></br>
-          <br></br>
-
-          <div className="grid-container">
-
-          <div className="left" > 
-          
-              <div className="card">
-                  <img src={person2} alt="Avatar" />
-                  <div className="container">
-                    <h5><b>Prof. I.K.Loaff</b></h5> 
-                    <p>Engineering Technology</p> 
-                  </div>
-                </div>
-            </div>
-
-
-            <div className="middle" >
-              <div className="card">
-                  <img src={person1} alt="Avatar" />
-                  <div className="container">
-                    <h5><b> Prof. Amei Fross</b></h5> 
-                    <p>Mobile Robotics Engineering</p> 
-                  </div>
-                </div>
-             </div> 
-
-
-            <div className="right" > 
-              <div className="card">
-                  <img src={person3} alt="Avatar" />
-                  <div className="container">
-                    <h5><b>Prof. I.S. Jawahir</b></h5> 
-                    <p>Computer Science</p> 
-                  </div>
-                </div>
-            </div>
-
-          </div>
-
-
-          
-
-
-
-          <br></br>
-          <br></br>
-
-          </div>
+         
 
           
         </div>
 
         <div className="divcenter"><h4 className="PageTitles">Prof. I.K.Loaff | Engineering Technology</h4>
           <hr class="hr-12"></hr>
+          <img src={person2} alt="Avatar" />
           <p>In 2012,Prof. I.K.Loaff was the recipient of the Faculty of the Year Award at Lawrence Technological University.
              He is an internationally educated scholar with a PhD in Applied Mathematics from the Universite Catholique De Louvain of Belgium.
               He joined Lawrence Technological University in 1997 and currently serves as a professor in the Engineering Technology department.
@@ -88,6 +39,7 @@ class keynotes extends Component {
 
           <div className="divcenter"><h4 className="PageTitles">Prof. Amei Fross | Mobile Robotics Engineering</h4>
           <hr class="hr-12"></hr>
+          <img src={person1} alt="Avatar" />
           <p>Since 2001, Dr. Amei Fross has served as a professor and Fulbright scholar in the Department of Technology at Northern Illinois University. 
             Prior to joining Northern Illinois University, Dr. Amei Fross joined the faculty at the University of Portsmouth and the University of Sheffield in the UK.
            Dr.Amei Fross has received millions of dollars in grants for his research and is the author of over 100 scholarly papers.
@@ -95,11 +47,13 @@ class keynotes extends Component {
           </div>
 
           <div className="divcenter"><h4 className="PageTitles">Prof. I.S. Jawahir | Computer Science</h4>
+          <hr class="hr-12"></hr>
+          <img src={person3} alt="Avatar" />
           <p>Prof. I.S. Jawahir,  was born April 19, 1931, in Durham, North Carolina. 
             Growing up in the Raleigh/Durham region, he earned his AB in physics at Duke University in 1953.
             Prof. I.S. Jawahirthen joined the pioneering degree program in computer science at Harvard University,
              where he earned his SM in 1955 and his PhD in 1956. At Harvard he was a student of Howard Aiken, who during World War II developed the Harvard Mark I, one of the largest electromechanical calculators ever built, and the first automatic digital calculator built in the United States.</p>
-          <hr class="hr-12"></hr>
+         
           </div>
       </div>
 

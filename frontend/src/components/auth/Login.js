@@ -6,14 +6,6 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import Select from 'react-select';
 
-
-const options = [
-  { value: 'admin', label: 'Admin' },
-  { value: 'editor', label: 'Editor' },
-  { value: 'reviewer', label: 'Reviewer' }
-]
-
-
 class Login extends Component {
   constructor() {
     super();

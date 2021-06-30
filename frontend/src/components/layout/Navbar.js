@@ -12,11 +12,10 @@ class Navbar extends Component {
             <Link to="/" >Home</Link>
             <Link to="/Keynotes" >Keynotes</Link>
             <Link to="/register">Registrations</Link>
-            <Link to="/program" >Program</Link>
+            <Link to="/programs" >Program</Link>
             <Link to="/research_papers" >Research Papers</Link>
             <Link to="/workshops" >Workshops</Link>
             <Link to="/downloads" >Downloads</Link>
-            <Link to="/contact" >Contact</Link>
             <div class="topnav-right">
             <Link to="/login"><a href="#search">Login</a></Link>
             

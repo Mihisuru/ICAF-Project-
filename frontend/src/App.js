@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";//home
 import Register from "./components/auth/Register";
@@ -20,30 +18,22 @@ import AdminDashboard from "./components/dashboard/admin/adminDashboard";
 import editorDashboard from "./components/dashboard/editor/editorDashboard";
 //3 reviewer
 import reviewerDashboard from "./components/dashboard/reviewer/reviewerDashboard";
-
-
 //4 attendee
 import attendee from "./components/dashboard/attendee/Dashboard";
 //5 Workshop presenter
 import wp from "./components/dashboard/workshopPresenter/Dashboard";
 //6 researcher
 import researcher from "./components/dashboard/researcher/Dashboard";
-
 //Downloads
 import download from "./components/downloads/download";
-
 //Keynotes
 import keynotes from "./components/keynotes/keynotes";
-
 //Add event - Editor
 import insertEvent from "./components/dashboard/editor/InsertEvent";
-
 //Edit event - Editor
 import EditEvent from "./components/dashboard/editor/EditEvent";
-
-import Dashboard from "./components/dashboard/Dashboard";
-
-//import EditEvent from './components/dashboard/EditEvent';
+//Program
+import ProgramMain from './components/dashboard/program/ViewEventsPage';
 
 
 
@@ -81,28 +71,18 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/downloads" component={download} />
             <Route exact path="/keynotes" component={keynotes} />
+            <Route exact path="/programs" component={ProgramMain} />
 
-
-            <Switch>
-                    <Route path='/editor/edit/event/:id' component={EditEvent}/>
-            </Switch>
             
             <Switch>
-             
               <PrivateRoute path="/admin/dashboard" component={AdminDashboard} />
               <PrivateRoute path="/editor/dashboard" component={editorDashboard} />
               <PrivateRoute path="/reviewer/dashboard" component={reviewerDashboard} />
-
               <PrivateRoute path="/workshop_presenter/dashboard" component={wp} />
               <PrivateRoute path="/researcher/dashboard" component={researcher} />
               <PrivateRoute path="/attendee/dashboard" component={attendee} />
-
-            
               <PrivateRoute path="/editor/add/event" component={insertEvent} />
-
               <PrivateRoute path="/editor/edit/event" component={EditEvent} />
-
-
             </Switch>
             
           </div>

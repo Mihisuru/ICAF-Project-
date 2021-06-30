@@ -12,18 +12,11 @@ const validateEventInput = require("../../validation/eventvaidate");
 // Load User model
 const Event = require("../../models/Event");
 
-// @route POST api/users/register
-// @desc Register user
-// @access Public
-
 
 //Event insert
 router.post("/insert", (req, res) => {
   // Form validation
-
   const { errors, isValid } = validateEventInput(req.body);
-
-  
 
   // Check validation
   if (!isValid) {
@@ -50,20 +43,7 @@ router.post("/insert", (req, res) => {
                 res.status(500).send({ error: error.message});
             });
       }
-/*
-      // Hash password before saving in database 
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
-          newEvent
-            .save()
-            .then(user => res.json(user))
-            .catch(err => console.log(err));
-        });
-      });
 
-      */
     }
   });
 });
@@ -82,7 +62,21 @@ router.route('/all').get(function (req, res){
   });
 });
 
+//Get approved Events
 
+router.route('/approved').get(function (req, res){
+
+  Event.find({status: 'Approved'}, function (err,event){
+ 
+      if(err)
+          console.log(err);
+      else{
+          res.json(event);
+      }
+   
+  });
+  
+});
 
 //Delete Event
 
@@ -95,17 +89,16 @@ router.route('/delete/:id').get(function(req,res) {
 
 
 
-
-
 router.route('/edit/:id').get(function (req,res){
   let id = req.params.id;
-  Employee.findById(id, function (err,event){
+  Event.findById(id, function (err,event){
       res.json(event);
   });
 });
 
 router.route('/update/:id').post(function (req,res){
   let id = req.params.id;
+  
   Event.findById(id, function (err, event){
       if(!event)
           res.status(404).send("Data is not found??");
@@ -113,18 +106,19 @@ router.route('/update/:id').post(function (req,res){
       
           event.oid = req.body.oid;
           event.ename = req.body.ename;
-          event.edue = req.body.edue;
-          event.edes = req.body.edes;
+          //event.edue = req.body.edue;
+         // event.edes = req.body.edes;
           event.link = req.body.link;
           event.date = req.body.date;
           event.status = req.body.status;
          
          
 
-          even.save().then(even => {
+          event.save().then(event => {
               res.json('Update Complete');
           })
               .catch(err =>{
+                  console.log(err);
                   res.status(400).send("Unable to update data");
               });
       }

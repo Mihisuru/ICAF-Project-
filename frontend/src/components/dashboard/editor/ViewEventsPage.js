@@ -3,7 +3,6 @@ import axios from 'axios';
 import TableRow from './TableRow';//
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 
-
 import EditEvent from './EditEvent';
 
 class ViewEventsPage extends Component{
@@ -32,9 +31,9 @@ class ViewEventsPage extends Component{
     render() {
         return(
             <div>
+             
                 <h1 className="text-center"  style = {{marginTop :550}}>Events</h1>
                 <hr/>
-               
                     <table className="table table-striped" style = {{marginTop :50}}>
                         <thead>
                         <tr>
@@ -52,8 +51,7 @@ class ViewEventsPage extends Component{
                         {this.tabRow()}
                         </tbody>
                     </table>
-                
-              
+                    
             </div>
         );
     }
