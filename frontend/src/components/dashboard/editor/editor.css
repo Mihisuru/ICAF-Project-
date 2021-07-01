@@ -1,5 +1,4 @@
 
-
   .center {
     margin: 0;
     position: absolute;
@@ -36,4 +35,7 @@
     width: 50%;
   }
 
+  .textleft{
+    text-align: left;
+  }
  

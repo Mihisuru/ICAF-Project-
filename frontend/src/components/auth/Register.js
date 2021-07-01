@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+
 class Register extends Component {
   constructor() {
     super();
@@ -142,6 +143,8 @@ class Register extends Component {
                 <label htmlFor="name">Role: (workshop_presenter / researcher / attendee )</label>
                 <span className="red-text">{errors.role}</span>
               </div>
+
+          
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{

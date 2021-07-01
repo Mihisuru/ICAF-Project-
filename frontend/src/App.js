@@ -6,12 +6,11 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";//home
+import Landing from "./components/layout/Landing";//1st page
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
-//Dashboards
 //1 Admin
 import AdminDashboard from "./components/dashboard/admin/adminDashboard";
 //2 editor
@@ -35,6 +34,11 @@ import EditEvent from "./components/dashboard/editor/EditEvent";
 //Program
 import ProgramMain from './components/dashboard/program/ViewEventsPage';
 
+//Dashboard redirect
+import RedirectDashboard from './components/dashboard/RedirectDashboard';
+
+//Logout
+import Logout  from './components/logout/Logout';
 
 
 // Check for token to keep user logged in
@@ -63,16 +67,13 @@ class App extends Component {
         <Router>
           <div>
             <Navbar />
-
-
-
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/downloads" component={download} />
             <Route exact path="/keynotes" component={keynotes} />
             <Route exact path="/programs" component={ProgramMain} />
-
+            <Route path="/logout" component={Logout}/>
             
             <Switch>
               <PrivateRoute path="/admin/dashboard" component={AdminDashboard} />
@@ -83,6 +84,7 @@ class App extends Component {
               <PrivateRoute path="/attendee/dashboard" component={attendee} />
               <PrivateRoute path="/editor/add/event" component={insertEvent} />
               <PrivateRoute path="/editor/edit/event" component={EditEvent} />
+              <PrivateRoute path="/dashboard" component={RedirectDashboard} />
             </Switch>
             
           </div>

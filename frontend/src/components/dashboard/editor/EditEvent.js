@@ -44,12 +44,14 @@ export default class EditEvent extends  Component{
         this.setState({ [e.target.id]: e.target.value });
       };
 
-
     onSubmit(e){
         e.preventDefault();
-        let Email = this.state.email;
+        let link2 =window.location.href;
+        let link =window.location.href;
+        const id = link.slice(link.lastIndexOf('/')+1);
+
         const obj ={
-            oid: this.state.oid,
+            oid: id,
             ename: this.state.ename,
             edue: this.state.edue,
             edes: this.state.edes,
@@ -58,10 +60,7 @@ export default class EditEvent extends  Component{
             status: "Pending"
         };
 
-        //console.log('Update id '+this.props.match.params.id)
-        let link =window.location.href;
-        const id = link.slice(link.lastIndexOf('/')+1);
-        axios.post('http://localhost:5000/api/event/update/'+id)
+        axios.post('http://localhost:5000/api/event/update/'+id,obj)
             .then(res => console.log(res.data))
             .catch(error => console.log(error));
         this.props.history.push('/editor/dashboard');
@@ -73,7 +72,6 @@ export default class EditEvent extends  Component{
                 <div className="container" style={{marginTop:10}}>
                     <h3 className="text-center">Edit Event</h3>
                     <form onSubmit={this.onSubmit} className="form-control-plaintext">
-                       
                         <div className="form-group">
                             <label> Event Name :</label>
                             <input type ="text" className="form-control" name="ename" id="ename" value={this.state.ename} onChange = {this.onChange}/>
@@ -82,6 +80,13 @@ export default class EditEvent extends  Component{
                             <label>Event Due :</label>
                             <input type ="text" className="form-control"  name="edue" id="edue"  value={this.state.edue} onChange = {this.onChange}/>
                         </div>
+                        <div className="form-group">
+                            <label>Description :</label>
+                            <textarea id="edes" name="w3review" rows="4" cols="50" value={this.state.edes} onChange = {this.onChange}>
+                                {this.state.edes}
+                            </textarea>
+                        </div>
+                      
                         <div className="form-group">
                             <label>Link (Optional) :</label>
                             <input type ="text" className="form-control" name="link" id="link"  value={this.state.link} onChange = {this.onChange}/>

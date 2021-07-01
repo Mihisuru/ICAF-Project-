@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-import Select from 'react-select';
 
 class Login extends Component {
   constructor() {
@@ -12,32 +11,21 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      rolee:"",
-
-      selectedOption: null,
-     
-
       errors: {}
     };
   }
 
- 
-
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
-   
     if (this.props.auth.isAuthenticated) {
-     
-      this.props.history.push(this.state.rolee+"/dashboard");
+      this.props.history.push("/dashboard");
     }
   }
 
   componentWillReceiveProps(nextProps) {
-   
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push(this.state.rolee+"/dashboard");
+      this.props.history.push("/dashboard");
     }
-
 
     if (nextProps.errors) {
       this.setState({
@@ -51,17 +39,12 @@ class Login extends Component {
 
   };
 
-
-
   onSubmit = e => {
     e.preventDefault();
-   
-    
-   
     const userData = {
       email: this.state.email,
-      password: this.state.password,
-      role:this.state.rolee
+      password: this.state.password
+     
     };
 
     this.props.loginUser(userData);
@@ -69,8 +52,6 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
-    const { selectedO } = this.state.rolee;
-
     return (
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
@@ -123,27 +104,13 @@ class Login extends Component {
                 </span>
               </div>
 
-              <div className="input-field col s12">
-                <input
-                    onChange={this.onChange}
-                    value={this.state.rolee}
-                    error={errors.rolee}
-                    id="rolee"
-                    type="text"
-
-                />
-                <label htmlFor="rolee">Role</label>
-
-              </div>
-
-
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
-                    marginTop: "15rem"
+                    marginTop: "2rem"
                   }}
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
