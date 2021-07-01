@@ -33,10 +33,8 @@ import insertEvent from "./components/dashboard/editor/InsertEvent";
 import EditEvent from "./components/dashboard/editor/EditEvent";
 //Program
 import ProgramMain from './components/dashboard/program/ViewEventsPage';
-
 //Dashboard redirect
 import RedirectDashboard from './components/dashboard/RedirectDashboard';
-
 //Logout
 import Logout  from './components/logout/Logout';
 
@@ -57,7 +55,8 @@ if (localStorage.jwtToken) {
     store.dispatch(logoutUser());
 
     // Redirect to login
-    window.location.href = "./login";
+    window.location.href = "/login";
+   
   }
 }
 class App extends Component {
@@ -86,7 +85,7 @@ class App extends Component {
               <PrivateRoute path="/editor/edit/event" component={EditEvent} />
               <PrivateRoute path="/dashboard" component={RedirectDashboard} />
             </Switch>
-            
+           
           </div>
         </Router>
       </Provider>

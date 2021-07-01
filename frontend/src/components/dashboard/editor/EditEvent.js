@@ -46,7 +46,7 @@ export default class EditEvent extends  Component{
 
     onSubmit(e){
         e.preventDefault();
-        let link2 =window.location.href;
+       
         let link =window.location.href;
         const id = link.slice(link.lastIndexOf('/')+1);
 

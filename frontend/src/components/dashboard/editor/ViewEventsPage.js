@@ -6,14 +6,14 @@ class ViewEventsPage extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {employee : []};
+        this.state = {eventslist : []};
     }
 
     componentDidMount() {
 
         axios.get('http://localhost:5000/api/event/all')
             .then(response => {
-             this.setState({employee : response.data});
+             this.setState({eventslist : response.data});
 
             })
             .catch(function (error){
@@ -21,7 +21,7 @@ class ViewEventsPage extends Component{
             })
     }
     tabRow(){
-        return this.state.employee.map(function (object, i){
+        return this.state.eventslist.map(function (object, i){
             return <TableRow obj = {object} key = {i}/>;
         });
     }

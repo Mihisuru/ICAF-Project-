@@ -21,6 +21,7 @@ router.post("/insert", (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
+  
 
   Event.findOne({ ename: req.body.ename}).then(user => {
     if (user) {
