@@ -13,10 +13,18 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 
 //1 Admin
 import AdminDashboard from "./components/dashboard/admin/adminDashboard";
+import empadd from "./components/dashboard/admin/AddEmployeePage";
+import empview from "./components/dashboard/admin/ViewEmployeePage";
+import empedit from "./components/dashboard/admin/EditEmployee";
+import conview from "./components/dashboard/admin/ViewConferencePage";
+import work from "./components/dashboard/admin/ViewWorkshopPage";
+import reser from "./components/dashboard/admin/ViewResearchPage";
 //2 editor
 import editorDashboard from "./components/dashboard/editor/editorDashboard";
 //3 reviewer
 import reviewerDashboard from "./components/dashboard/reviewer/reviewerDashboard";
+import workshop from "./components/dashboard/reviewer/ViewWorkshopPage"
+import reserach from "./components/dashboard/reviewer/ViewResearchPage"
 //4 attendee
 import attendee from "./components/dashboard/attendee/Dashboard";
 //5 Workshop presenter
@@ -84,6 +92,18 @@ class App extends Component {
               <PrivateRoute path="/editor/add/event" component={insertEvent} />
               <PrivateRoute path="/editor/edit/event" component={EditEvent} />
               <PrivateRoute path="/dashboard" component={RedirectDashboard} />
+
+              <Route exact path="/admin/dashboard" />
+              <Route exact path="/EmpAdd" component={empadd} />
+              <Route exact path="/EmpView" component={empview} />
+              <Route exact path="/EmpEdit/:id" component={empedit} />
+              <Route exact path="/ConView" component={conview} />
+              <Route exact path="/WorksView" component={work} />
+              <Route exact path="/ResearchppView" component={reser} />
+
+              <Route exact path="/reviewer/dashboard" />
+              <Route exact path="/WorkshopView" component={workshop} />
+              <Route exact path="/ResearchView" component={reserach} />
             </Switch>
            
           </div>
