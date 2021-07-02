@@ -6,26 +6,17 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";//home
+import Landing from "./components/layout/Landing";//1st page
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
-//Dashboards
 //1 Admin
 import AdminDashboard from "./components/dashboard/admin/adminDashboard";
-import empadd from "./components/dashboard/admin/AddEmployeePage";
-import empview from "./components/dashboard/admin/ViewEmployeePage";
-import empedit from "./components/dashboard/admin/EditEmployee";
-import conview from "./components/dashboard/admin/ViewConferencePage";
-import resear from "./components/dashboard/admin/ViewResearchPage";
-import work from "./components/dashboard/admin/ViewWorkshopPage";
 //2 editor
 import editorDashboard from "./components/dashboard/editor/editorDashboard";
 //3 reviewer
 import reviewerDashboard from "./components/dashboard/reviewer/reviewerDashboard";
-import workshop from "./components/dashboard/reviewer/ViewWorkshopPage";
-import reserach from "./components/dashboard/reviewer/ViewResearchPage";
 //4 attendee
 import attendee from "./components/dashboard/attendee/Dashboard";
 //5 Workshop presenter
@@ -42,7 +33,10 @@ import insertEvent from "./components/dashboard/editor/InsertEvent";
 import EditEvent from "./components/dashboard/editor/EditEvent";
 //Program
 import ProgramMain from './components/dashboard/program/ViewEventsPage';
-
+//Dashboard redirect
+import RedirectDashboard from './components/dashboard/RedirectDashboard';
+//Logout
+import Logout  from './components/logout/Logout';
 
 
 // Check for token to keep user logged in
@@ -61,7 +55,8 @@ if (localStorage.jwtToken) {
     store.dispatch(logoutUser());
 
     // Redirect to login
-    window.location.href = "./login";
+    window.location.href = "/login";
+   
   }
 }
 class App extends Component {
@@ -71,16 +66,13 @@ class App extends Component {
         <Router>
           <div>
             <Navbar />
-
-
-
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/downloads" component={download} />
             <Route exact path="/keynotes" component={keynotes} />
             <Route exact path="/programs" component={ProgramMain} />
-
+            <Route path="/logout" component={Logout}/>
             
             <Switch>
               <PrivateRoute path="/admin/dashboard" component={AdminDashboard} />
@@ -91,21 +83,9 @@ class App extends Component {
               <PrivateRoute path="/attendee/dashboard" component={attendee} />
               <PrivateRoute path="/editor/add/event" component={insertEvent} />
               <PrivateRoute path="/editor/edit/event" component={EditEvent} />
-
-              <Route exact path="/admin/dashboard" />
-              <Route exact path="/EmpAdd" component={empadd} />
-              <Route exact path="/EmpView" component={empview} />
-              <Route exact path="/EmpEdit/:id" component={empedit} />
-              <Route exact path="/ConView" component={conview} />
-              <Route exact path="/ResearchppView" component={resear} />
-              <Route exact path="/WorksView" component={work} />
-
-              <Route exact path="/reviewer/dashboard" />
-              <Route exact path="/WorkshopView" component={workshop} />
-              <Route exact path="/ResearchView" component={reserach} />
-
+              <PrivateRoute path="/dashboard" component={RedirectDashboard} />
             </Switch>
-            
+           
           </div>
         </Router>
       </Provider>

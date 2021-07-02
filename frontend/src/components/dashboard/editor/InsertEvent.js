@@ -17,13 +17,6 @@ class insertEvent extends Component {
     };
   }
 
-  componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to dashboard
-    //if (this.props.auth.isAuthenticated) {
-      //this.props.history.push("/dashboard");
-   // }
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
@@ -38,20 +31,17 @@ class insertEvent extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
     const newEvent = {
       ename: this.state.ename,
       edue: this.state.edue,
       edes: this.state.edes,
       link: this.state.link
     };
-
     this.props.addEvent(newEvent, this.props.history);
   };
 
   render() {
     const { errors } = this.state;
-
     return (
       <div className="container">
         <div className="row">
@@ -64,7 +54,6 @@ class insertEvent extends Component {
               <h4>
                 <b>Insert Event</b> 
               </h4>
-             
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">

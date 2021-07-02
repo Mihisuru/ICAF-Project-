@@ -31,20 +31,20 @@ class download extends Component {
             <tr>
                 <td>Research paper template</td>
                 <td className="tablecenter">Word (docx)</td>
-                <td className="tablecenter"><a href="https://codevish.com/download/IEEE_conference_template.docx" target="_blank" className="btn btn-large waves-effect waves-light hoverable blue accent-3">Download</a> </td>
+                <td className="tablecenter"><a href="https://codevish.com/download/IEEE_conference_template.docx" target="_self" className="btn btn-large waves-effect waves-light hoverable blue accent-3">Download</a> </td>
             </tr>
             <tr>
                 <td>Workshop PowerPoint 
 templates</td>
                 <td className="tablecenter">Power Point (.ppt)</td>
-                <td className="tablecenter" ><a href="https://codevish.com/download/Workshop_Presentation.pptx" target="_blank" className="btn btn-large waves-effect waves-light hoverable blue accent-3">Download</a></td>
+                <td className="tablecenter" ><a href="https://codevish.com/download/Workshop_Presentation.pptx" target="_self" className="btn btn-large waves-effect waves-light hoverable blue accent-3">Download</a></td>
                
             </tr>
             <tr>
                 <td>Guideline</td>
                 <td className="tablecenter">PDF</td>
                 <td className="tablecenter">
-                <a href="https://codevish.com/download/Guidlines.pdf" target="_blank" className="btn btn-large waves-effect waves-light hoverable blue accent-3">Download</a>
+                <a href="https://codevish.com/download/Guidlines.pdf" target="_self" className="btn btn-large waves-effect waves-light hoverable blue accent-3">Download</a>
               </td>
             </tr>
            

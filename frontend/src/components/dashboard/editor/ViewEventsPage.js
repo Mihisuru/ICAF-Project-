@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import TableRow from './TableRow';//
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
-
-import EditEvent from './EditEvent';
+import TableRow from './TableRow';
 
 class ViewEventsPage extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {employee : []};
+        this.state = {eventslist : []};
     }
 
     componentDidMount() {
 
         axios.get('http://localhost:5000/api/event/all')
             .then(response => {
-             this.setState({employee : response.data});
+             this.setState({eventslist : response.data});
 
             })
             .catch(function (error){
@@ -24,15 +21,15 @@ class ViewEventsPage extends Component{
             })
     }
     tabRow(){
-        return this.state.employee.map(function (object, i){
+        return this.state.eventslist.map(function (object, i){
             return <TableRow obj = {object} key = {i}/>;
         });
     }
     render() {
         return(
-            <div>
+            <div style = {{marginTop :"10%"}}>
              
-                <h1 className="text-center"  style = {{marginTop :550}}>Events</h1>
+                <h1 className="textleft"  style = {{marginTop :"1%"}}>Events</h1>
                 <hr/>
                     <table className="table table-striped" style = {{marginTop :50}}>
                         <thead>
@@ -43,8 +40,8 @@ class ViewEventsPage extends Component{
                             <th>Links</th>
                             <th>Created Date</th>
                             <th>Status</th>
-                            <th>Action 1</th>
-                            <th>Action 2</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>

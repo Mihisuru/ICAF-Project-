@@ -8,6 +8,7 @@
     "classnames": "^2.2.6",
     "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.6.3",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^16.6.3",
@@ -36,5 +37,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest-enzyme": "^7.1.2"
+  }
 }
