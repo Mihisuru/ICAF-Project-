@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authActions";
+import {Link} from "react-router-dom";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -13,17 +14,17 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div>
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>REVIEWER WELCOME</span> app 👏
+
+                <span style={{ fontFamily: "monospace" }}>REVIEWER WELCOME</span>  👏
               </p>
             </h4>
-            <button
+            <!--<button
               style={{
                 width: "150px",
                 borderRadius: "3px",
@@ -34,9 +35,23 @@ class Dashboard extends Component {
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
-            </button>
+            </button>-->
           </div>
         </div>
+
+        <div className="navbar-fixed">
+          <nav className="z-depth-0">
+            <div className="nav-wrapper white">
+
+              <div className="topnav" id="myTopnav">
+                <Link to="/reviewer/dashboard" >Reviewer Home</Link>
+                <Link to="/WorkshopView">View Workshop</Link>
+                <Link to="/ResearchView">View Research</Link>
+              </div>
+            </div>
+          </nav>
+        </div>
+
       </div>
     );
   }

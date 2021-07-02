@@ -7,6 +7,10 @@ const users = require("./routes/api/users");
 
 const events = require("./routes/api/events");
 
+const workshopRouter  =  require ("./routes/api/workshop"); //workshop get route file
+const Admin = require("./routes/api/admin.route")  //employee get route file
+const researchRouter = require("./routes/api/reasearcher");//workshop get route file
+const reviewer = require("./routes/api/reviewer")
 const cors = require('cors');
 
 
@@ -49,7 +53,16 @@ app.use("/api/users", users);
 
 app.use("/api/event", events);//
 
+app.use('/workshop',workshopRouter);//workshop route
+app.use('/research' , researchRouter); //research route
+app.use('/admin',Admin);//Employee route
+app.use('/reviewer',reviewer);
 
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+
+
+
+

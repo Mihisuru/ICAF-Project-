@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authActions";
+import SubmitWorkshop from './workshopsubmit' ;
+import ViewApproveWorkshop from "./ViewApproveWorkshop";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -13,16 +15,24 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{ height: "150vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
+                Upload Your Workshop Files Here{" "}
+                <span style={{ fontFamily: "monospace" }}></span>  👏
               </p>
             </h4>
+            <SubmitWorkshop/>
+            <br/><hr/><h5><b>Your Approved Workshops</b></h5>
+            <ViewApproveWorkshop/>
             <button
               style={{
                 width: "150px",

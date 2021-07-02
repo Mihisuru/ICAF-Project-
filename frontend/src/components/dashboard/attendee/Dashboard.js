@@ -19,11 +19,11 @@ class Dashboard extends Component {
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
+                You are login in to ICAF {" "}
+                <span style={{ fontFamily: "monospace" }}></span>  👏
               </p>
             </h4>
-            <button
+            <!--<button
               style={{
                 width: "150px",
                 borderRadius: "3px",
@@ -34,7 +34,7 @@ class Dashboard extends Component {
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
-            </button>
+            </button>-->
           </div>
         </div>
       </div>
